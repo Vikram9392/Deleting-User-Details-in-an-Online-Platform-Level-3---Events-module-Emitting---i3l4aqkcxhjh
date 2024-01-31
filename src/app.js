@@ -16,13 +16,14 @@ const id=req.params.id;
 const deletedUser = userDetails.find(
   (updatedDetails) => updatedDetails.id === id
 );
-if(!deletedUser){
+const index=userDetails.indexOf(deletedUser)
+if(!index){
   return res.status(404).send({
     status: "failed",
     message: "User not found!",
   });
 }
-const index=userDetails.indexOf(deletedUser)
+
 userDetails.splice(index,1)
 fs.writeFile( `${__dirname}/data/userDetails.json`,
 JSON.stringify(userDetails),
