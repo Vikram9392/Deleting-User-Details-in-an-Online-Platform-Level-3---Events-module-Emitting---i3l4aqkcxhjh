@@ -14,7 +14,7 @@ app.use(express.json());
 app.delete('/api/v1/details/:id',(req,res)=>{
 const id=req.params.id;
 const deletedUser = userDetails.find(
-  (updatedDetails) => updatedDetails.id == id
+  (updatedDetails) => updatedDetails.id === id
 );
 
 if(!deleteUser){
